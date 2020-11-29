@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.pair.application.FlowerShopController; //////////////
+
+
 public class FlowerSheet extends JPanel {
 	
 	private JPanel mySheet2;
@@ -14,6 +17,9 @@ public class FlowerSheet extends JPanel {
 	//private boolean principio;
 	//private double resultado;
 	//private String ultimaOperacion;
+	
+	private FlowerShopController controller = new FlowerShopController();
+
 	
 	public FlowerSheet () {
 	
@@ -55,8 +61,12 @@ public class FlowerSheet extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			
 			String entrada = e.getActionCommand();	
+			
 			screen.setText(entrada);			
-		//		screen.setText(screen.getText() + entrada);			
+		//		screen.setText(screen.getText() + entrada);
+			
+			//@dapser75 REVISAR el metodo de llamada
+			if (entrada.equals("Crear Floristeria")) controller.NewFlowerShop();
 		}	
 	}
 }

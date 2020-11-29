@@ -19,4 +19,11 @@ public class FlowerShop {
 		//	this.flowers= flowers;	
 		//	this.decoration = decoration;
 		}
+
+		public String getName() {
+			return name;
+		}
+		
+	
+		
 }
