@@ -23,6 +23,12 @@ public class FlowerShopRepository {
 	public static List<FlowerShop> getAllFlowerShops(){
 		return new ArrayList<>(flowershoplist);
 	}
+
+	public void add(FlowerShop flowershop) throws Exception {
+		if (flowershop == null) throw new Exception();
+		flowershoplist.add(flowershop);
+		
+	}
 	
 	
 }

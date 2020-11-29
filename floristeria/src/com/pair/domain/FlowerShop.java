@@ -24,6 +24,10 @@ public class FlowerShop {
 			return name;
 		}
 		
+		public FlowerShop (String name) {
+			this.name=name;
+		}
+		
 	
 		
 }

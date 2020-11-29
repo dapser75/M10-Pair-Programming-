@@ -10,6 +10,8 @@ import com.pair.persistence.FlowerShopRepository;
 
 public class FlowerShopController {
 
+	private FlowerShopRepository flowershoprepository = new FlowerShopRepository();
+
 	public FlowerShopRepository repository; 	
 	
 	public FlowerShopController(FlowerShopRepository repository){  // constructor
@@ -27,19 +29,41 @@ public class FlowerShopController {
 		String flowershopname="";
 		boolean existsflowershop=false;
 		
-		do {
-			flowershopname=InputFlowerShopName();
+//		do {
+			flowershopname=InputFlowerShopName(); //Llamada al metode per introduir el nom de la floristeria
 			if (flowershopname != "") {
 				existsflowershop = checkFlowerShopName(flowershopname);
+				
+				if (!existsflowershop)  FlowerFhopCreated(flowershopname);
+				else JOptionPane.showMessageDialog(null, "Floristeria existent !!!", "Alerta", JOptionPane.ERROR_MESSAGE);
+					
+			
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "Operació cancel·lada", "Alerta", JOptionPane.ERROR_MESSAGE);
-				break;
+				
 			}
 			
-			
-		}while(existsflowershop);//Cheaquear si el nombre ya existe
+//		}while(existsflowershop);//Cheaquear si el nombre ya existe
+		
+		
+
 	}//end metode
+
+
+
+	//Métode per afegir al una floristeria al repository
+	private void FlowerFhopCreated(String flowershopname) {
+		try {
+			FlowerShop flowershop = new FlowerShop (flowershopname);
+			flowershoprepository.add(flowershop);
+
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Operació cancel·lada, no s'ha pogut crear la floristeria", "Alerta", JOptionPane.ERROR_MESSAGE);
+
+		}
+		
+	}
 
 	//Métode per chequear si una floristeria ja està creada
 	private boolean checkFlowerShopName(String flowershopname) {
