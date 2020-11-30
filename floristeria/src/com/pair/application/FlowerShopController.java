@@ -29,7 +29,6 @@ public class FlowerShopController {
 		String flowershopname="";
 		boolean existsflowershop=false;
 		
-//		do {
 			flowershopname=InputFlowerShopName(); //Llamada al metode per introduir el nom de la floristeria
 			if (flowershopname != "") {
 				existsflowershop = checkFlowerShopName(flowershopname);
@@ -43,13 +42,8 @@ public class FlowerShopController {
 				JOptionPane.showMessageDialog(null, "Operació cancel·lada", "Alerta", JOptionPane.ERROR_MESSAGE);
 				
 			}
-			
-//		}while(existsflowershop);//Cheaquear si el nombre ya existe
 		
-		
-
 	}//end metode
-
 
 
 	//Métode per afegir al una floristeria al repository
@@ -66,7 +60,7 @@ public class FlowerShopController {
 	}
 
 	//Métode per chequear si una floristeria ja està creada
-	private boolean checkFlowerShopName(String flowershopname) {
+	public boolean checkFlowerShopName(String flowershopname) {
 		List<FlowerShop> flowershoprepository = FlowerShopRepository.getAllFlowerShops(); //Chequear el casting
 		boolean checkflowershopname=false;
 		
@@ -84,7 +78,7 @@ public class FlowerShopController {
 	}
 	
 	//Métode per entrar el non de la floristeria Cambiar a  entrada en modo gráfico
-	private String InputFlowerShopName() {
+	public String InputFlowerShopName() {
 		String flowershopname="";
 		do {
 			flowershopname=	JOptionPane.showInputDialog(null,"Introdueix el nom de la floristeria:","ENTRADA",JOptionPane.QUESTION_MESSAGE);	

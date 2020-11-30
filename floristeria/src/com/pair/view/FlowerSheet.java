@@ -18,7 +18,7 @@ public class FlowerSheet extends JPanel {
 	//private double resultado;
 	//private String ultimaOperacion;
 	
-	private FlowerShopController controller = new FlowerShopController();
+	private FlowerShopController flowershopcontroller = new FlowerShopController();
 
 	
 	public FlowerSheet () {
@@ -66,7 +66,7 @@ public class FlowerSheet extends JPanel {
 		//		screen.setText(screen.getText() + entrada);
 			
 			//@dapser75 REVISAR el metodo de llamada
-			if (entrada.equals("Crear Floristeria")) controller.NewFlowerShop();
+			if (entrada.equals("Crear Floristeria")) flowershopcontroller.NewFlowerShop();
 		}	
 	}
 }
